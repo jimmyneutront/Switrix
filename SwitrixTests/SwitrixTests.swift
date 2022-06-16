@@ -55,13 +55,5 @@ class SwitrixTests: XCTestCase {
         task.resume()
         wait(for: [unreachableExpectation], timeout: 60.0)
     }
-    
-    // TODO: Move sync tests to their own class
-    func testSwitrixSync() {
-        let unreachableExpectation = XCTestExpectation(description: "Unreachable Expectation")
-        let client = SwitrixClient(homeserver: "https://matrix.org", token: ProcessInfo.processInfo.environment["MXKY"]!)
-        client.sync.sync()
-        wait(for: [unreachableExpectation], timeout: 60.0)
-    }
 
 }

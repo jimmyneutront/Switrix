@@ -28,7 +28,13 @@ class SwitrixSyncTests: XCTestCase {
         let syncExpectation = XCTestExpectation(description: "Get sync object from SwitrixClient")
         let client = SwitrixClient(homeserver: "https://matrix.org", token: ProcessInfo.processInfo.environment["MXKY"]!)
         client.sync.sync() { response in
-            print(response)
+            switch response {
+            case .success(let switrixResponse):
+                XCTAssertTrue(switrixResponse.nextBatchToken != "")
+                syncExpectation.fulfill()
+            default:
+                break
+            }
         }
         wait(for: [syncExpectation], timeout: 30.0)
     }

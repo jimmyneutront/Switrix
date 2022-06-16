@@ -6,5 +6,5 @@
 //
 
 struct SwitrixSyncResponse: Decodable {
-    
+    let nextBatchToken: String
 }

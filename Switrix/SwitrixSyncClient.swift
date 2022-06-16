@@ -81,8 +81,18 @@ class SwitrixSyncClient {
                 return
             }
             // We have a response with a 200 status code and no Matrix error, so we try to create a response object
-            let json = try! JSONSerialization.jsonObject(with: responseData, options: .fragmentsAllowed) as! [String:Any]
-            print(json)
+            guard let json = try? JSONSerialization.jsonObject(with: responseData, options: .fragmentsAllowed) as? [String:Any] else {
+                let switrixResponse = SwitrixResponse<SwitrixSyncResponse>.failure(SwitrixError.localUnknown(message: "Unable to get JSON from sync endpoint response"))
+                completionHandler(switrixResponse)
+                return
+            }
+            guard let nextBatchToken = json["next_batch"] as? String else {
+                let switrixResponse = SwitrixResponse<SwitrixSyncResponse>.failure(SwitrixError.localUnknown(message: "Did not find next batch token in sync endpoint response"))
+                completionHandler(switrixResponse)
+                return
+            }
+            let switrixResponse = SwitrixResponse.success(SwitrixSyncResponse(nextBatchToken: nextBatchToken))
+            completionHandler(switrixResponse)
         }
         task.resume()
     }

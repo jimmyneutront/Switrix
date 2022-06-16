@@ -2,7 +2,7 @@
 //  Switrix.h
 //  Switrix
 //
-//  Created by James Telzrow on 6/15/22.
+//  Created by jimmyt on 6/15/22.
 //
 
 #import <Foundation/Foundation.h>

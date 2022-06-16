@@ -11,6 +11,8 @@
 		6D436BE8285A2C53002CF8C7 /* Switrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D436BDD285A2C52002CF8C7 /* Switrix.framework */; };
 		6D436BED285A2C53002CF8C7 /* SwitrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D436BEC285A2C53002CF8C7 /* SwitrixTests.swift */; };
 		6D436BEE285A2C53002CF8C7 /* Switrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D436BE0285A2C52002CF8C7 /* Switrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D506097285A8ABD00256046 /* SwitrixClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D506096285A8ABD00256046 /* SwitrixClient.swift */; };
+		6D506099285AD3F600256046 /* SwitrixSyncClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D506098285AD3F500256046 /* SwitrixSyncClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		6D436BE1285A2C52002CF8C7 /* Switrix.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Switrix.docc; sourceTree = "<group>"; };
 		6D436BE7285A2C53002CF8C7 /* SwitrixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwitrixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D436BEC285A2C53002CF8C7 /* SwitrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixTests.swift; sourceTree = "<group>"; };
+		6D506096285A8ABD00256046 /* SwitrixClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixClient.swift; sourceTree = "<group>"; };
+		6D506098285AD3F500256046 /* SwitrixSyncClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixSyncClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			children = (
 				6D436BE0285A2C52002CF8C7 /* Switrix.h */,
 				6D436BE1285A2C52002CF8C7 /* Switrix.docc */,
+				6D506096285A8ABD00256046 /* SwitrixClient.swift */,
+				6D506098285AD3F500256046 /* SwitrixSyncClient.swift */,
 			);
 			path = Switrix;
 			sourceTree = "<group>";
@@ -194,7 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D506099285AD3F600256046 /* SwitrixSyncClient.swift in Sources */,
 				6D436BE2285A2C52002CF8C7 /* Switrix.docc in Sources */,
+				6D506097285A8ABD00256046 /* SwitrixClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +402,7 @@
 		6D436BF5285A2C53002CF8C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -409,6 +418,7 @@
 		6D436BF6285A2C53002CF8C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

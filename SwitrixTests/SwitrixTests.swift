@@ -2,7 +2,7 @@
 //  SwitrixTests.swift
 //  SwitrixTests
 //
-//  Created by James Telzrow on 6/15/22.
+//  Created by jimmyt on 6/15/22.
 //
 
 import XCTest
@@ -31,6 +31,37 @@ class SwitrixTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testMatrixApi() throws {
+        let unreachableExpectation = XCTestExpectation(description: "Unreachable Expectation")
+        let homeserver = "https://matrix.org"
+        var homeserverUrlComponents = URLComponents(string: homeserver + "/_matrix/client/v3/sync")!
+        homeserverUrlComponents.queryItems = [
+            URLQueryItem(name: "access_token", value: "an_access_token")
+        ]
+        var request = URLRequest(url: homeserverUrlComponents.url!)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error)
+            } else if let data = data {
+                let json = try! JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as! [String:Any]
+                print(json)
+            } else {
+                print(response as Any)
+            }
+        }
+        task.resume()
+        wait(for: [unreachableExpectation], timeout: 60.0)
+    }
+    
+    // TODO: Move sync tests to their own class
+    func testSwitrixSync() {
+        let unreachableExpectation = XCTestExpectation(description: "Unreachable Expectation")
+        let client = SwitrixClient(homeserver: "https://matrix.org", token: ProcessInfo.processInfo.environment["MXKY"]!)
+        client.sync.sync()
+        wait(for: [unreachableExpectation], timeout: 60.0)
     }
 
 }

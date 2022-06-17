@@ -13,6 +13,10 @@
 		6D176FA0285BFB1B0079F7DD /* SwitrixGetEventsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176F9F285BFB1B0079F7DD /* SwitrixGetEventsResponse.swift */; };
 		6D176FA2285BFDD80079F7DD /* SwitrixEventsDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176FA1285BFDD80079F7DD /* SwitrixEventsDirection.swift */; };
 		6D176FAA285C1A380079F7DD /* SwitrixDataTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176FA9285C1A380079F7DD /* SwitrixDataTaskManager.swift */; };
+		6D176FAC285C2A370079F7DD /* SwitrixEventsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176FAB285C2A360079F7DD /* SwitrixEventsClientTests.swift */; };
+		6D176FAE285CCF7B0079F7DD /* SwitrixClientEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176FAD285CCF7B0079F7DD /* SwitrixClientEvent.swift */; };
+		6D176FB0285CD3CB0079F7DD /* SwitrixEventContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176FAF285CD3CB0079F7DD /* SwitrixEventContent.swift */; };
+		6D176FB2285CD4110079F7DD /* SwitrixMessageEventContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176FB1285CD4110079F7DD /* SwitrixMessageEventContent.swift */; };
 		6D436BE2285A2C52002CF8C7 /* Switrix.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6D436BE1285A2C52002CF8C7 /* Switrix.docc */; };
 		6D436BE8285A2C53002CF8C7 /* Switrix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D436BDD285A2C52002CF8C7 /* Switrix.framework */; };
 		6D436BED285A2C53002CF8C7 /* SwitrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D436BEC285A2C53002CF8C7 /* SwitrixTests.swift */; };
@@ -41,6 +45,10 @@
 		6D176F9F285BFB1B0079F7DD /* SwitrixGetEventsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixGetEventsResponse.swift; sourceTree = "<group>"; };
 		6D176FA1285BFDD80079F7DD /* SwitrixEventsDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixEventsDirection.swift; sourceTree = "<group>"; };
 		6D176FA9285C1A380079F7DD /* SwitrixDataTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitrixDataTaskManager.swift; sourceTree = "<group>"; };
+		6D176FAB285C2A360079F7DD /* SwitrixEventsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixEventsClientTests.swift; sourceTree = "<group>"; };
+		6D176FAD285CCF7B0079F7DD /* SwitrixClientEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixClientEvent.swift; sourceTree = "<group>"; };
+		6D176FAF285CD3CB0079F7DD /* SwitrixEventContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixEventContent.swift; sourceTree = "<group>"; };
+		6D176FB1285CD4110079F7DD /* SwitrixMessageEventContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixMessageEventContent.swift; sourceTree = "<group>"; };
 		6D436BDD285A2C52002CF8C7 /* Switrix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Switrix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D436BE0285A2C52002CF8C7 /* Switrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Switrix.h; sourceTree = "<group>"; };
 		6D436BE1285A2C52002CF8C7 /* Switrix.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Switrix.docc; sourceTree = "<group>"; };
@@ -97,14 +105,17 @@
 				6D436BE1285A2C52002CF8C7 /* Switrix.docc */,
 				6D506096285A8ABD00256046 /* SwitrixClient.swift */,
 				6D506098285AD3F500256046 /* SwitrixSyncClient.swift */,
-				6D50609C285ADF2500256046 /* MatrixErrorResponse.swift */,
+				6D176F9D285BF8CE0079F7DD /* SwitrixEventsClient.swift */,
+				6D176FAD285CCF7B0079F7DD /* SwitrixClientEvent.swift */,
+				6D176FA9285C1A380079F7DD /* SwitrixDataTaskManager.swift */,
 				6D50609E285AE25A00256046 /* SwitrixError.swift */,
 				6D176F97285BA82C0079F7DD /* SwitrixResponse.swift */,
+				6D50609C285ADF2500256046 /* MatrixErrorResponse.swift */,
 				6D176F9B285BA9190079F7DD /* SwitrixSyncResponse.swift */,
-				6D176F9D285BF8CE0079F7DD /* SwitrixEventsClient.swift */,
 				6D176F9F285BFB1B0079F7DD /* SwitrixGetEventsResponse.swift */,
 				6D176FA1285BFDD80079F7DD /* SwitrixEventsDirection.swift */,
-				6D176FA9285C1A380079F7DD /* SwitrixDataTaskManager.swift */,
+				6D176FAF285CD3CB0079F7DD /* SwitrixEventContent.swift */,
+				6D176FB1285CD4110079F7DD /* SwitrixMessageEventContent.swift */,
 			);
 			path = Switrix;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			children = (
 				6D436BEC285A2C53002CF8C7 /* SwitrixTests.swift */,
 				6D50609A285ADE4100256046 /* SwitrixSyncTests.swift */,
+				6D176FAB285C2A360079F7DD /* SwitrixEventsClientTests.swift */,
 			);
 			path = SwitrixTests;
 			sourceTree = "<group>";
@@ -229,10 +241,13 @@
 			files = (
 				6D506099285AD3F600256046 /* SwitrixSyncClient.swift in Sources */,
 				6D436BE2285A2C52002CF8C7 /* Switrix.docc in Sources */,
+				6D176FAE285CCF7B0079F7DD /* SwitrixClientEvent.swift in Sources */,
 				6D176F9E285BF8CE0079F7DD /* SwitrixEventsClient.swift in Sources */,
 				6D176FAA285C1A380079F7DD /* SwitrixDataTaskManager.swift in Sources */,
 				6D50609D285ADF2500256046 /* MatrixErrorResponse.swift in Sources */,
+				6D176FB0285CD3CB0079F7DD /* SwitrixEventContent.swift in Sources */,
 				6D176F98285BA82C0079F7DD /* SwitrixResponse.swift in Sources */,
+				6D176FB2285CD4110079F7DD /* SwitrixMessageEventContent.swift in Sources */,
 				6D176FA2285BFDD80079F7DD /* SwitrixEventsDirection.swift in Sources */,
 				6D176F9C285BA9190079F7DD /* SwitrixSyncResponse.swift in Sources */,
 				6D506097285A8ABD00256046 /* SwitrixClient.swift in Sources */,
@@ -246,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D436BED285A2C53002CF8C7 /* SwitrixTests.swift in Sources */,
+				6D176FAC285C2A370079F7DD /* SwitrixEventsClientTests.swift in Sources */,
 				6D50609B285ADE4100256046 /* SwitrixSyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@ import XCTest
 @testable import Switrix
 
 class SwitrixSyncTests: XCTestCase {
+    #warning("TODO: move error handling test to DataTaskManager test")
+    #warning("TODO: handle missing token errors and test for them as well")
     func testSwitrixSyncErrorHandling() {
         let unknownTokenExpectation = XCTestExpectation(description: "Get unknown token error from homeserver")
         let client = SwitrixClient(homeserver: "https://matrix.org", token: "not_a_real_token")

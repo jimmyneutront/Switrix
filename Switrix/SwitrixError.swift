@@ -5,7 +5,7 @@
 //  Created by jimmyt on 6/16/22.
 //
 
-enum SwitrixError: Error {
+public enum SwitrixError: Error {
 case unknownToken(message:String)
 case localUnknown(message: String)
     

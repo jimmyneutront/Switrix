@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SwitrixSyncClient {
+public class SwitrixSyncClient {
     init(homeserverUrl: String, accessToken: String) {
         self.homeserverUrl = homeserverUrl
         self.accessToken = accessToken
@@ -15,7 +15,7 @@ class SwitrixSyncClient {
     let homeserverUrl: String
     let accessToken: String
     
-    func sync(completionHandler: @escaping (SwitrixResponse<SwitrixSyncResponse>) -> Void) {
+    public func sync(completionHandler: @escaping (SwitrixResponse<SwitrixSyncResponse>) -> Void) {
         guard var syncUrlComponents = URLComponents(string: homeserverUrl + "/_matrix/client/v3/sync") else {
             let switrixResponse = SwitrixResponse<SwitrixSyncResponse>.failure(SwitrixError.localUnknown(message: "Unable to create sync endpoint URL components"))
             completionHandler(switrixResponse)

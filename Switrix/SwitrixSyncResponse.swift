@@ -5,6 +5,6 @@
 //  Created by jimmyt on 6/16/22.
 //
 
-struct SwitrixSyncResponse: Decodable {
-    let nextBatchToken: String
+public struct SwitrixSyncResponse: Decodable {
+    public let nextBatchToken: String
 }

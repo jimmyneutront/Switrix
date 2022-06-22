@@ -5,7 +5,18 @@
 //  Created by jimmyt on 6/16/22.
 //
 
+/**
+ Manages `URLSessionDataTask`s for Switrix clients.
+ */
 class SwitrixDataTaskManager {
+    /**
+     Creates and executes a new `URLSessionDataTask` for the given `URLRequest` in the shared `URLSession`, attempts to create a response object from the results of the `URLSessionDataTask` using `responseCreator`, and then passes the resulting `SwitrixResponse` to `completionHandler`. If `manageDataTask` is able to successfully create the proper response object from the results of the `URLSessionDataTask`, the `SwitrixResponse` this will pass to `completionHandler` will be successfull and will contain a `SwitrixResponseType`. If `manageDataTask` is not able to successfully create the proper response object from the results of the `URLSessionDataTask`, the `SwitrixResponse` this will pass to `completionHandler` will be a failure and will contain an `Error` describing what went wrong.
+     
+     - Parameters:
+        - request: The `URLRequest` to be made in the shared `URLSession`.
+        - responseCreator: A closure to which the response JSON will be passed in order to create a `SwitrixResponse<SwitrixResponseType>` response object.
+        - completionHandler: The closure to which the created `SwitrixResponse<SwitrixResponseType>` will be passed, regardless of whether the request succeeded or failed.
+     */
     func manageDataTask<SwitrixResponseType>(request: URLRequest, responseCreator: @escaping ([String:Any]) -> SwitrixResponse<SwitrixResponseType>, completionHandler: @escaping (SwitrixResponse<SwitrixResponseType>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // Make sure we have a response. If we don't, check if we have an error and pass it to the completion handler if we do. If we don't, we create our own and pass it to the completion handler.

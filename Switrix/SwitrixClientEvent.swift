@@ -6,10 +6,10 @@
 //
 
 public struct SwitrixClientEvent {
-    let content: SwitrixEventContent
-    let eventId: String
-    let originServerTimestamp: Int
-    let roomId: String
-    let sender: String
-    let type: String
+    public let content: SwitrixEventContent
+    public let eventId: String
+    public let originServerTimestamp: Int
+    public let roomId: String
+    public let sender: String
+    public let type: String
 }

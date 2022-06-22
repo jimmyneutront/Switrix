@@ -5,6 +5,6 @@
 //  Created by jimmyt on 6/17/22.
 //
 
-protocol SwitrixEventContent {
+public protocol SwitrixEventContent {
     
 }

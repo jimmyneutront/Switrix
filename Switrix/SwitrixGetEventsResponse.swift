@@ -6,7 +6,7 @@
 //
 
 public struct SwitrixGetEventsResponse {
-    let start: String
-    let end: String
-    let chunk: [SwitrixClientEvent]
+    public let start: String
+    public let end: String
+    public let chunk: [SwitrixClientEvent]
 }

@@ -6,7 +6,7 @@
 //
 
 /**
- The main Switrix Cient class. It contains clients used to call specific types of [Matrix Client-Server API](https://spec.matrix.org/v1.3/client-server-api/) endpoints.
+ The main Switrix Client class. It contains clients used to call specific types of [Matrix Client-Server API](https://spec.matrix.org/v1.3/client-server-api/) endpoints.
  
  - Properties:
     - homeserverUrl: The URL of the homeserver that this client should use, as a `String` without a trailing slash.

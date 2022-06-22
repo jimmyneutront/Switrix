@@ -7,15 +7,41 @@
 
 import Foundation
 
+/**
+ The Switrix Events Client, used to call [Matrix Client-Server API](https://spec.matrix.org/v1.3/client-server-api/) `events`-related endpoints.
+ */
 public class SwitrixEventsClient {
+    /**
+     Creates a new `SwitrixEventsClient`.
+     
+     - Parameters:
+        - homeserverUrl: The URL of the homeserver that this client should use, as a `String` without a trailing slash.
+        - accessToken: The access token to include in API requests, as a `String`.
+     */
     init(homeserverUrl: String, accessToken: String) {
         self.homeserverUrl = homeserverUrl
         self.accessToken = accessToken
     }
+    /**
+     The URL of the homeserver that this client should use, without a trailing slash.
+     */
     let homeserverUrl: String
+    /**
+     The access token to include in API requests.
+     */
     let accessToken: String
     
     #warning ("TODO: handle code 403 which means we arent in the room")
+    /**
+     Calls the Matrix Client-Server API [messages](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3roomsroomidmessages) endpoint using a `SwitrixDataTaskManager`.
+     
+     - Parameters:
+        - roomId: The ID of the room from which to get events.
+        - from: The batch token to start returning events from.
+        - direction: The direction to return events from: either forwards, with newest events last, or backwards, with newest events first.
+        - limit: The maximum number of events to return. Note that the actual number of events returned will likely be less than `limit`, since this only returns text message events.
+        - completionHandler: A closure to which the `SwitrixResponse<SwitrixGetEventsResponse>` result of the API call will be passed for handling.
+     */
     public func getEvents(roomId: String, from: String, direction: SwitrixEventsDirection, limit: Int, completionHandler: @escaping (SwitrixResponse<SwitrixGetEventsResponse>) -> Void) {
         guard var getEventsUrlComponents = URLComponents(string: homeserverUrl + "/_matrix/client/v3/rooms/" + roomId + "/messages") else {
             let switrixResponse = SwitrixResponse<SwitrixGetEventsResponse>.failure(SwitrixError.localUnknown(message: "Unable to create get events endpoint URL components"))

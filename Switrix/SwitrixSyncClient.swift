@@ -34,7 +34,7 @@ public class SwitrixSyncClient {
     /**
      Calls the Matrix Client-Server API [sync](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3sync) endpoint using a `SwitrixDataTaskManager`.
      
-     - Parameter completionHandler: A closure to which `SwitrixResponse<SwitrixSyncResponse>` result of the API call will be passed for handling.
+     - Parameter completionHandler: A closure to which the  `SwitrixResponse<SwitrixSyncResponse>` result of the API call will be passed for handling.
      */
     public func sync(completionHandler: @escaping (SwitrixResponse<SwitrixSyncResponse>) -> Void) {
         guard var syncUrlComponents = URLComponents(string: homeserverUrl + "/_matrix/client/v3/sync") else {

@@ -9,7 +9,9 @@ import XCTest
 @testable import Switrix
 
 class SwitrixDataTaskManagerTests: XCTestCase {
-    // Ensure SwitrixDataTaskManager handles unknown token errors properly
+    /**
+     Ensure that SwitrixDataTaskManager handles [Matrix Unknown Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) errors properly.
+     */
     func testSwitrixDataTaskManagerUnknownTokenHandling() {
         let unknownTokenExpectation = XCTestExpectation(description: "Get unknown token error from homeserver")
         var urlComponents = URLComponents(string: "https://matrix.org/_matrix/client/v3/sync")!
@@ -34,6 +36,9 @@ class SwitrixDataTaskManagerTests: XCTestCase {
     }
     
     // Ensure SwitrixDataTaskManager handles missing token errors properly
+    /**
+     Ensure that SwitrixDataTaskManager handles [Matrix Missing Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) errors properly.
+     */
     func testSwitrixDataTaskManagerMissingTokenHandling() {
         let missingTokenExpectation = XCTestExpectation(description: "Get missing token error from homeserver")
         let urlComponents = URLComponents(string: "https://matrix.org/_matrix/client/v3/sync")!

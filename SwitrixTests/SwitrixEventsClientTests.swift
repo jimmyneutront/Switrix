@@ -9,6 +9,9 @@ import XCTest
 @testable import Switrix
 
 class SwitrixEventsClientTests: XCTestCase {
+    /**
+     Tests SwitrixEventsClient by ensuring we get a proper `SwitrixGetEventsResponse` from the Matrix Client-Server API [messages](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3roomsroomidmessages) endpoint.
+     */
     func testSwitrixGetEvents() {
         let startToken = "t1-2607497254_757284974_11441483_1402797642_1423439559_3319206_507472245_4060289024_0"
         let getEventsExpectation = XCTestExpectation(description: "Get events object from SwitrixClient")

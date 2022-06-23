@@ -8,6 +8,9 @@
 import XCTest
 @testable import Switrix
 
+/**
+ Miscellaneous functions to test and prototype new Switrix functionality.
+ */
 class SwitrixTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -33,6 +36,9 @@ class SwitrixTests: XCTestCase {
         }
     }
     
+    /**
+     Calls the Matrix Client-Server API [sync](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3sync) method. This doesn't actually test anything.
+     */
     func testMatrixApi() throws {
         let unreachableExpectation = XCTestExpectation(description: "Unreachable Expectation")
         let homeserver = "https://matrix.org"

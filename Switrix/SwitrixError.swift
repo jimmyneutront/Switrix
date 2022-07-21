@@ -8,25 +8,25 @@
 /**
  The Switrix Error `enum`. Created by Switrix code when something unexpected occurs.
  */
-public enum SwitrixError: Error {
+public enum SwitrixError: Error, LocalizedError {
     /**
      Created when Switrix encounters a [Matrix Unknown Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) error.
      
      - Parameter message: The value of the `"error"` field in the [Matrix Standard error response](https://spec.matrix.org/v1.3/client-server-api/#standard-error-response) that gave rise to this error.
      */
-case unknownToken(message:String)
+    case unknownToken(message:String)
     /**
      Created when Switrix encounters a [Matrix Missing Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) error.
      
      - Parameter message: The value of the `"error"` field in the [Matrix Standard error response](https://spec.matrix.org/v1.3/client-server-api/#standard-error-response) that gave rise to this error.
      */
-case missingToken(message: String)
+    case missingToken(message: String)
     /**
      Created when Switrix encounters a miscellaneous, rare, or otherwise unexpected non-Matrix error, or when Switrix encounters a Matrix error with an unrecognized [error code](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes)
      
      - Parameter message: A brief message describing the context in which the error occured.
      */
-case localUnknown(message: String)
+    case localUnknown(message: String)
     
     /**
      The [Matrix error code](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) associated with a `SwitrixError`, or `"none"` if no error code exists.
@@ -73,4 +73,12 @@ case localUnknown(message: String)
             return SwitrixError.localUnknown(message: "Received error response with unknown error code")
         }
     }
+    
+    /**
+     A `String` describing the contenxt in which the error occured.
+     */
+    public var errorDescription: String? {
+        return errorMessage
+    }
+    
 }

@@ -31,9 +31,10 @@ public class SwitrixEventsClient {
      */
     let accessToken: String
     
-    #warning ("TODO: handle code 403 which means we arent in the room")
+    #warning("TODO: move this to SwitrixRoomsClient")
+    #warning("TODO: handle code 403 which means we arent in the room")
     /**
-     Calls the Matrix Client-Server API [messages](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3roomsroomidmessages) endpoint using a `SwitrixDataTaskManager`.
+     Calls the Matrix Client-Server API [messages](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3roomsroomidmessages) endpoint using `SwitrixTaskManager.manageDataTask`.
      
      - Parameters:
         - roomId: The ID of the room from which to get events.
@@ -89,6 +90,6 @@ public class SwitrixEventsClient {
             }
             return SwitrixResponse.success(SwitrixGetEventsResponse(start: start as String, end: end as String, chunk: switrixClientEvents))
         }
-        SwitrixDataTaskManager().manageDataTask(request: request, responseCreator: responseCreator, completionHandler: completionHandler)
+        SwitrixTaskManager.manageDataTask(request: request, responseCreator: responseCreator, completionHandler: completionHandler)
     }
 }

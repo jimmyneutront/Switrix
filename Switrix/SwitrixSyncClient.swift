@@ -32,7 +32,7 @@ public class SwitrixSyncClient {
     let accessToken: String
     
     /**
-     Calls the Matrix Client-Server API [sync](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3sync) endpoint using a `SwitrixDataTaskManager`.
+     Calls the Matrix Client-Server API [sync](https://spec.matrix.org/v1.3/client-server-api/#get_matrixclientv3sync) endpoint using `SwitrixTaskManager.manageDataTask`.
      
      - Parameter completionHandler: A closure to which the  `SwitrixResponse<SwitrixSyncResponse>` result of the API call will be passed for handling.
      */
@@ -59,7 +59,7 @@ public class SwitrixSyncClient {
             let switrixResponse = SwitrixResponse.success(SwitrixSyncResponse(nextBatchToken: nextBatchToken))
             return switrixResponse
         }
-        SwitrixDataTaskManager().manageDataTask(request: request, responseCreator: responseCreator, completionHandler: completionHandler)
+        SwitrixTaskManager.manageDataTask(request: request, responseCreator: responseCreator, completionHandler: completionHandler)
     }
     
 }

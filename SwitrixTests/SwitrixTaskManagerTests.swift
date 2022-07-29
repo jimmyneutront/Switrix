@@ -1,5 +1,5 @@
 //
-//  SwitrixDataTaskManagerTests.swift
+//  SwitrixTaskManagerTests.swift
 //  SwitrixTests
 //
 //  Created by jimmyt on 6/17/22.
@@ -8,11 +8,11 @@
 import XCTest
 @testable import Switrix
 
-class SwitrixDataTaskManagerTests: XCTestCase {
+class SwitrixTaskManagerTests: XCTestCase {
     /**
-     Ensure that SwitrixDataTaskManager handles [Matrix Unknown Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) errors properly.
+     Ensure that SwitrixTaskManager handles [Matrix Unknown Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) errors properly.
      */
-    func testSwitrixDataTaskManagerUnknownTokenHandling() {
+    func testSwitrixTaskManagerUnknownTokenHandling() {
         let unknownTokenExpectation = XCTestExpectation(description: "Get unknown token error from homeserver")
         var urlComponents = URLComponents(string: "https://matrix.org/_matrix/client/v3/sync")!
         urlComponents.queryItems = [
@@ -23,7 +23,7 @@ class SwitrixDataTaskManagerTests: XCTestCase {
         let responseCreator: ([String:Any]) -> SwitrixResponse<SwitrixSyncResponse> = { json in
             return SwitrixResponse<SwitrixSyncResponse>.failure(SwitrixError.localUnknown(message: "Unexpectedly got a successful response in a test where failure is expected"))
         }
-        SwitrixDataTaskManager().manageDataTask(request: request, responseCreator: responseCreator) { response in
+        SwitrixTaskManager.manageDataTask(request: request, responseCreator: responseCreator) { response in
             switch response {
             case .failure(let error):
                 XCTAssertTrue((error as! SwitrixError).errorCode == "M_UNKNOWN_TOKEN")
@@ -35,11 +35,11 @@ class SwitrixDataTaskManagerTests: XCTestCase {
         wait(for: [unknownTokenExpectation], timeout: 20.0)
     }
     
-    // Ensure SwitrixDataTaskManager handles missing token errors properly
+    // Ensure SwitrixTaskManager handles missing token errors properly
     /**
-     Ensure that SwitrixDataTaskManager handles [Matrix Missing Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) errors properly.
+     Ensure that SwitrixTaskManager handles [Matrix Missing Token](https://spec.matrix.org/v1.3/client-server-api/#common-error-codes) errors properly.
      */
-    func testSwitrixDataTaskManagerMissingTokenHandling() {
+    func testSwitrixTaskManagerMissingTokenHandling() {
         let missingTokenExpectation = XCTestExpectation(description: "Get missing token error from homeserver")
         let urlComponents = URLComponents(string: "https://matrix.org/_matrix/client/v3/sync")!
         let url = urlComponents.url!
@@ -47,7 +47,7 @@ class SwitrixDataTaskManagerTests: XCTestCase {
         let responseCreator: ([String:Any]) -> SwitrixResponse<SwitrixSyncResponse> = { json in
             return SwitrixResponse<SwitrixSyncResponse>.failure(SwitrixError.localUnknown(message: "Unexpectedly got a successful response in a test where failure is expected"))
         }
-        SwitrixDataTaskManager().manageDataTask(request: request, responseCreator: responseCreator) { response in
+        SwitrixTaskManager.manageDataTask(request: request, responseCreator: responseCreator) { response in
             switch response {
             case .failure(let error):
                 XCTAssertTrue((error as! SwitrixError).errorCode == "M_MISSING_TOKEN")

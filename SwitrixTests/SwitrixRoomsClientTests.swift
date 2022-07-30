@@ -17,9 +17,8 @@ class SwitrixRoomsClientTests: XCTestCase {
         let sendMessageExpectation = XCTestExpectation(description: "Get send message response from SwitrixClient")
         let randomID = UUID()
         let eventContent = SwitrixMessageEventContent(body: randomID.uuidString)
-        let event = SwitrixClientEvent(content: eventContent, eventId: "", originServerTimestamp: -1, roomId: "", sender: "", type: "m.room.message")
         let client = SwitrixClient(homeserver: "https://matrix.org", token: ProcessInfo.processInfo.environment["MXKY"]!)
-        client.rooms.sendEvent(roomId: "!WEuJJHaRpDvkbSveLu:matrix.org", event: event) { response in
+        client.rooms.sendEvent(roomId: "!WEuJJHaRpDvkbSveLu:matrix.org", eventType: "m.room.message", eventContent: eventContent) { response in
             switch response {
             case .success(let sendMessageResponse):
                 XCTAssertNotNil(sendMessageResponse.eventId)

@@ -27,6 +27,7 @@ public class SwitrixClient {
         accessToken = token
         sync = SwitrixSyncClient(homeserverUrl: homeserverUrl, accessToken: token)
         events = SwitrixEventsClient(homeserverUrl: homeserverUrl, accessToken: token)
+        rooms = SwitrixRoomsClient(homeserverUrl: homeserver, accessToken: token)
     }
     /**
      The URL of the homeserver that this client should use as a `String`, without a trailing slash.
@@ -45,6 +46,10 @@ public class SwitrixClient {
      The client for making `events`-related requests.
      */
     public let events: SwitrixEventsClient
+    /**
+     The client for making `rooms`-related requests.
+     */
+    public let rooms: SwitrixRoomsClient
     
     /**
      Attempts to get a `MatrixErrorResponse` from the response `Data` returned from an API call.

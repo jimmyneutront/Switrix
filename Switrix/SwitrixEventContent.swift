@@ -9,5 +9,8 @@
  A protocol that a struct or class must adopt in order to represent the content of a [Matrix ClientEvent](https://spec.matrix.org/v1.3/client-server-api/#room-event-format)
  */
 public protocol SwitrixEventContent {
-    
+    /**
+     Returns the event content as a valid JSON dictionary.
+     */
+    var asJSON: [String:Any] { get }
 }

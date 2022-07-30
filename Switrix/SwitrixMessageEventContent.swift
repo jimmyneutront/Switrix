@@ -17,4 +17,13 @@ public struct SwitrixMessageEventContent: SwitrixEventContent {
      The body of this text message.
      */
     public var body: String
+    /**
+     Returns the event content as a valid JSON dictionary.
+     */
+    public var asJSON: [String : Any] {
+        [
+            "body": body,
+            "msgtype": messageType
+        ]
+    }
 }

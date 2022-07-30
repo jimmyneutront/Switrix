@@ -33,4 +33,17 @@ public struct SwitrixClientEvent {
      The type of the event.
      */
     public let type: String
+    /**
+     Returns the event as a valid JSON dictionary.
+     */
+    public var asJSON: [String:Any] {
+        [
+            "content": content.asJSON,
+            "event_id": eventId,
+            "origin_server_ts": originServerTimestamp,
+            "room_id": roomId,
+            "sender": sender,
+            "type": type
+        ]
+    }
 }

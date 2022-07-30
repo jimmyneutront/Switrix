@@ -25,6 +25,21 @@ class SwitrixTaskManager {
     }
     
     /**
+     Creates and executes a new `URLSessionUploadTask` for the given `URLRequest` in the shared `URLSession`, and passes the results to `taskCompletionHandler`.
+     
+     - Parameters:
+        - request: The `URLRequest` to be made in the shared `URLSession`.
+        - responseCreator: A closure to which the response JSON will be passed in order to create a `SwitrixResponse<SwitrixResponseType>` response object.
+        - completionHandler: The closure to which the created `SwitrixResponse<SwitrixResponseType>` will be passed, regardless of whether the request succeeded or failed.
+     */
+    static func manageUploadTask<SwitrixResponseType>(request: URLRequest, uploadData: Data, responseCreator: @escaping ([String:Any]) -> SwitrixResponse<SwitrixResponseType>, completionHandler: @escaping (SwitrixResponse<SwitrixResponseType>) -> Void) {
+        let task = URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+            handleTaskResults(data: data, response: response, error: error, responseCreator: responseCreator, completionHandler: completionHandler)
+        }
+        task.resume()
+    }
+    
+    /**
      Attempts to create a response object from the results of a `URLSession` task using `responseCreator`, and then passes the resulting `SwitrixResponse` to `completionHandler`. If `handleTaskResults` is able to successfully create the proper response object from the given `URLSession` task results, the `SwitrixResponse` this will pass to `completionHandler` will be successfull and will contain a `SwitrixResponseType`. If `handleTaskResults` is not able to successfully create the proper response object from the given results of a `URLSession` task, the `SwitrixResponse` this will pass to `completionHandler` will be a failure and will contain an `Error` describing what went wrong.
      */
     static func handleTaskResults<SwitrixResponseType>(data: Data?, response: URLResponse?, error: Error?, responseCreator: @escaping ([String:Any]) -> SwitrixResponse<SwitrixResponseType>, completionHandler: @escaping (SwitrixResponse<SwitrixResponseType>) -> Void) {

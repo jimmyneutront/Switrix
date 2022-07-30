@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6D1272D528947A2D00393128 /* SwitrixRoomsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1272D428947A2D00393128 /* SwitrixRoomsClient.swift */; };
+		6D1272D728948F0500393128 /* SwitrixSendEventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1272D628948F0500393128 /* SwitrixSendEventResponse.swift */; };
+		6D1272DA2894C1D700393128 /* SwitrixRoomsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1272D92894C1D700393128 /* SwitrixRoomsClientTests.swift */; };
 		6D176F98285BA82C0079F7DD /* SwitrixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176F97285BA82C0079F7DD /* SwitrixResponse.swift */; };
 		6D176F9C285BA9190079F7DD /* SwitrixSyncResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176F9B285BA9190079F7DD /* SwitrixSyncResponse.swift */; };
 		6D176F9E285BF8CE0079F7DD /* SwitrixEventsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D176F9D285BF8CE0079F7DD /* SwitrixEventsClient.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		6D1272D428947A2D00393128 /* SwitrixRoomsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixRoomsClient.swift; sourceTree = "<group>"; };
+		6D1272D628948F0500393128 /* SwitrixSendEventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixSendEventResponse.swift; sourceTree = "<group>"; };
+		6D1272D92894C1D700393128 /* SwitrixRoomsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixRoomsClientTests.swift; sourceTree = "<group>"; };
 		6D176F97285BA82C0079F7DD /* SwitrixResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixResponse.swift; sourceTree = "<group>"; };
 		6D176F9B285BA9190079F7DD /* SwitrixSyncResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixSyncResponse.swift; sourceTree = "<group>"; };
 		6D176F9D285BF8CE0079F7DD /* SwitrixEventsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitrixEventsClient.swift; sourceTree = "<group>"; };
@@ -84,6 +88,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1272D8289490DE00393128 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				6D506096285A8ABD00256046 /* SwitrixClient.swift */,
+				6D506098285AD3F500256046 /* SwitrixSyncClient.swift */,
+				6D176F9D285BF8CE0079F7DD /* SwitrixEventsClient.swift */,
+				6D1272D428947A2D00393128 /* SwitrixRoomsClient.swift */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
 		6D436BD3285A2C52002CF8C7 = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +120,9 @@
 		6D436BDF285A2C52002CF8C7 /* Switrix */ = {
 			isa = PBXGroup;
 			children = (
+				6D1272D8289490DE00393128 /* client */,
 				6D436BE0285A2C52002CF8C7 /* Switrix.h */,
 				6D436BE1285A2C52002CF8C7 /* Switrix.docc */,
-				6D506096285A8ABD00256046 /* SwitrixClient.swift */,
-				6D506098285AD3F500256046 /* SwitrixSyncClient.swift */,
-				6D176F9D285BF8CE0079F7DD /* SwitrixEventsClient.swift */,
 				6D176FAD285CCF7B0079F7DD /* SwitrixClientEvent.swift */,
 				6D176FA9285C1A380079F7DD /* SwitrixTaskManager.swift */,
 				6D50609E285AE25A00256046 /* SwitrixError.swift */,
@@ -120,7 +133,7 @@
 				6D176FA1285BFDD80079F7DD /* SwitrixEventsDirection.swift */,
 				6D176FAF285CD3CB0079F7DD /* SwitrixEventContent.swift */,
 				6D176FB1285CD4110079F7DD /* SwitrixMessageEventContent.swift */,
-				6D1272D428947A2D00393128 /* SwitrixRoomsClient.swift */,
+				6D1272D628948F0500393128 /* SwitrixSendEventResponse.swift */,
 			);
 			path = Switrix;
 			sourceTree = "<group>";
@@ -132,6 +145,7 @@
 				6D8FAE97285D6614005697C0 /* SwitrixSyncClientTests.swift */,
 				6D176FAB285C2A360079F7DD /* SwitrixEventsClientTests.swift */,
 				6D176FB3285CE4310079F7DD /* SwitrixTaskManagerTests.swift */,
+				6D1272D92894C1D700393128 /* SwitrixRoomsClientTests.swift */,
 			);
 			path = SwitrixTests;
 			sourceTree = "<group>";
@@ -259,6 +273,7 @@
 				6D176F9C285BA9190079F7DD /* SwitrixSyncResponse.swift in Sources */,
 				6D506097285A8ABD00256046 /* SwitrixClient.swift in Sources */,
 				6D176FA0285BFB1B0079F7DD /* SwitrixGetEventsResponse.swift in Sources */,
+				6D1272D728948F0500393128 /* SwitrixSendEventResponse.swift in Sources */,
 				6D50609F285AE25A00256046 /* SwitrixError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D8FAE98285D6614005697C0 /* SwitrixSyncClientTests.swift in Sources */,
+				6D1272DA2894C1D700393128 /* SwitrixRoomsClientTests.swift in Sources */,
 				6D436BED285A2C53002CF8C7 /* SwitrixTests.swift in Sources */,
 				6D176FAC285C2A370079F7DD /* SwitrixEventsClientTests.swift in Sources */,
 				6D176FB4285CE4320079F7DD /* SwitrixTaskManagerTests.swift in Sources */,

@@ -10,6 +10,17 @@
  */
 public struct SwitrixClientEvent {
     /**
+     A public initializer. Required because the default initializer has the internal protection level.
+     */
+    public init(content: SwitrixEventContent, eventId: String, originServerTimestamp: Int, roomId: String, sender: String, type: String) {
+        self.content = content
+        self.eventId = eventId
+        self.originServerTimestamp = originServerTimestamp
+        self.roomId = roomId
+        self.sender = sender
+        self.type = type
+    }
+    /**
      The content of the event.
      */
     public let content: SwitrixEventContent

@@ -10,6 +10,12 @@
  */
 public struct SwitrixMessageEventContent: SwitrixEventContent {
     /**
+     A public initializer. Required because the default initializer has the internal protection level.
+     */
+    public init(body: String) {
+        self.body = body
+    }
+    /**
      The type of this message.
      */
     public let messageType = "m.text"

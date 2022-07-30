@@ -12,5 +12,5 @@ public struct SwitrixSendEventResponse {
     /**
      The value of the `"event_id"` field in the actual JSON response.
      */
-    let eventId: String
+    public let eventId: String
 }

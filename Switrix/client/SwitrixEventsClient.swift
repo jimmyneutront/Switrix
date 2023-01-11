@@ -63,9 +63,10 @@ public class SwitrixEventsClient {
         }
         let request = URLRequest(url: getEventsUrl)
         let responseCreator: ([String:Any]) -> SwitrixResponse<SwitrixGetEventsResponse> = { json in
-            guard let start = json["start"] as? NSString, let end = json["end"] as? NSString else {
-                return SwitrixResponse.failure(SwitrixError.localUnknown(message: "Unable to find tokens in get events response"))
+            guard let start = json["start"] as? NSString else {
+                return SwitrixResponse.failure(SwitrixError.localUnknown(message: "Unable to find start token in get events response"))
             }
+            let end = json["end"] as? NSString
             guard let chunk = json["chunk"] as? Array<Dictionary<String, Any>> else {
                 return SwitrixResponse.failure(SwitrixError.localUnknown(message: "Unable to find chunk in get events response"))
             }
@@ -88,7 +89,7 @@ public class SwitrixEventsClient {
                     }
                 }
             }
-            return SwitrixResponse.success(SwitrixGetEventsResponse(start: start as String, end: end as String, chunk: switrixClientEvents))
+            return SwitrixResponse.success(SwitrixGetEventsResponse(start: start as String, end: end as String?, chunk: switrixClientEvents))
         }
         SwitrixTaskManager.manageDataTask(request: request, responseCreator: responseCreator, completionHandler: completionHandler)
     }

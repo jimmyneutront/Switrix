@@ -14,9 +14,9 @@ public struct SwitrixGetEventsResponse {
      */
     public let start: String
     /**
-     The value of the `"end"` field in the actual JSON response.
+     The value of the `"end"` field in the actual JSON response, or `nil` if the `"end"` field was omitted.
      */
-    public let end: String
+    public let end: String?
     /**
      An array of `SwitrixClientEvent`a derived from the value of the `"chunk"` field in the actual JSON response.
      */
